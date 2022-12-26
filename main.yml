@@ -1,0 +1,15 @@
+---
+# tasks for vm1
+- hosts: database
+  tasks:
+    - name: Install postgresql-server
+      ansible.builtin.apt:
+        name: postgresql-server
+        state: present
+        # [ ] задать версию и дата директорию через переменные, 
+        # [ ] проверить этапы установки и запуска, возможно надо создать сервис
+
+    # task for app (vm2, vm3)
+- hosts: app
+  tasks:
+    - name: Install Docker
