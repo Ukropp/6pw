@@ -1,0 +1,1 @@
+# [Проектная работа 6](https://lms.skillfactory.ru/courses/course-v1:SkillFactory+DEVOPS-3.0+2021/courseware/1818f1e4a2fa4e2aace76827bb5ed460/16464aa2386641fb9f326ae307b580c4/1?activate_block_id=block-v1%3ASkillFactory%2BDEVOPS-3.0%2B2021%2Btype%40vertical%2Bblock%40c9071b004cc3489482c5f5a1eaac931b)
