@@ -1,7 +1,7 @@
 # [Проектная работа 6](https://lms.skillfactory.ru/courses/course-v1:SkillFactory+DEVOPS-3.0+2021/courseware/1818f1e4a2fa4e2aace76827bb5ed460/16464aa2386641fb9f326ae307b580c4/1?activate_block_id=block-v1%3ASkillFactory%2BDEVOPS-3.0%2B2021%2Btype%40vertical%2Bblock%40c9071b004cc3489482c5f5a1eaac931b)
 
+### TODO list
 ___
-
 - [ ] Создать 3 ВМ в Я.Облаке (минимальная конфигурация: 2vCPU, 2GB RAM, 20 GB HDD): vm1 и vm2 (Ubuntu 20.04), vm3 (Centos 8).
 - [ ] Установить на vm1 Ansible.
 - [ ] Создать на vm1 пользователя для Ansible.
@@ -14,3 +14,10 @@ ___
 - [ ] Выложить плейбук и inventory в GitHub. Создайте отдельный репозиторий Ansible.
 - [ ] Прислать ментору ссылку на репозиторий с плейбуком.
 
+___
+
+#### links:
+<https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>
+<https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html>
+<https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html>
+<https://docs.ansible.com/ansible/latest/playbook_guide/playbooks.html>
