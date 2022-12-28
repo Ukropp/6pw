@@ -1,5 +1,8 @@
 ---
 # tasks for vm1
+# https://github.com/geerlingguy/ansible-role-postgresql/tree/master/tasks
+# https://stribny.name/blog/ansible-postgresql/
+# https://www.ansiblepilot.com/articles/install-postgresql-in-debian-like-systems-ansible-modules-apt-stat-shell-service/
 - hosts: database
   tasks:
     - name: Install postgresql-server
@@ -13,6 +16,7 @@
 - hosts: app
   tasks:
     # Install Docker
+    # https://github.com/geerlingguy/ansible-role-docker/blob/master/tasks/main.yml
    - include_tasks: centos.yml
      when: ansible_facts[‘distribution’] == 'CentOS'
 
