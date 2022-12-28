@@ -30,20 +30,6 @@ resource "yandex_vpc_subnet" "subnet" {
   network_id     = yandex_vpc_network.network.id
 }
 
-# Целевая группа
-resource "yandex_lb_target_group" "lamp" {
-  name = "my-target-group"
-
-  target {
-    subnet_id = yandex_vpc_subnet.subnet.id
-    address   = module.lamp.internal_ip_address_vm
-  }
-
-  target {
-    subnet_id = yandex_vpc_subnet.subnet.id
-    address   = module.lemp.internal_ip_address_vm
-  }
-}
 
 # Установка Ansible на VM1
 
@@ -51,8 +37,8 @@ resource "yandex_lb_target_group" "lamp" {
 data "template_file" "ansible_inventory" {
   template = file("${path.module}/templates/hosts.tpl") # Путь до шаблона на локальном компьютере
   vars = {
-    vm2 = module.lamp.internal_ip_address_vm
-    vm3 = module.lemp.internal_ip_address_vm
+    vm2 = module.vm2.internal_ip_address_vm
+    vm3 = module.vm2.internal_ip_address_vm
   }
 }
 
