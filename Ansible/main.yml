@@ -18,7 +18,7 @@
     # Install Docker
     # https://github.com/geerlingguy/ansible-role-docker/blob/master/tasks/main.yml
    - include_tasks: centos.yml
-     when: ansible_facts[‘distribution’] == 'CentOS'
+     when: ansible_facts['distribution'] == 'CentOS'
 
    - include_tasks: ubuntu.yml
-     when: ansible_facts[‘distribution’] == 'Ubuntu'
+     when: ansible_facts['distribution'] == 'Ubuntu'
