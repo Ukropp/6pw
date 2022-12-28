@@ -23,3 +23,7 @@ ___
 * ansible role: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html>
 * ansible playbooks: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks.html>
 * terraform copy file: <https://developer.hashicorp.com/terraform/language/resources/provisioners/file>
+* terraform file provisoner: <https://developer.hashicorp.com/terraform/language/resources/provisioners/file>
+* terraform template file: <https://registry.tfpla.net/providers/hashicorp/template/latest/docs/data-sources/file>
+* terraform templates: <https://www.cloudbolt.io/terraform-best-practices/terraform-template/>
+
