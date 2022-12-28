@@ -35,4 +35,7 @@ ___
 * ansible yam module: <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_module.html>
 * ansible package moduel: <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/package_module.html>
 * ansible confitionals: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html>
-
+* ansible postgresql role: <https://github.com/geerlingguy/ansible-role-postgresql>
+* ansible install  postgresql:
+    * <https://stribny.name/blog/ansible-postgresql/>
+    * <https://www.ansiblepilot.com/articles/install-postgresql-in-debian-like-systems-ansible-modules-apt-stat-shell-service/>
