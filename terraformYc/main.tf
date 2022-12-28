@@ -2,19 +2,19 @@
 # vm1
 module "vm1" {
   source                = "./modules/instance"
-  instance_family_image = "lamp"
+  instance_family_image = "Ubuntu"
   vpc_subnet_id         = yandex_vpc_subnet.subnet.id
 }
 # vm2
 module "vm2" {
   source                = "./modules/instance"
-  instance_family_image = "lemp"
+  instance_family_image = "Ubuntu"
   vpc_subnet_id         = yandex_vpc_subnet.subnet.id
 }
 # vm3
 module "vm3" {
   source                = "./modules/instance"
-  instance_family_image = "lemp"
+  instance_family_image = "Centros"
   vpc_subnet_id         = yandex_vpc_subnet.subnet.id
 }
 
@@ -42,6 +42,7 @@ data "template_file" "ansible_inventory" {
   }
 }
 
+/*
 # Записываем сгенерированный шаблон в файл
 resource "null_resource" "update_inventory" {
   triggers = { // Код будет выполнен, когда inventory будет сгенерирован
@@ -50,4 +51,4 @@ resource "null_resource" "update_inventory" {
   provisioner "local-exec" { // выполняем команду на локальной машине
     command = "echo '${data.template_file.ansible_inventory.rendered}' > inventory.ini"
   }
-}
+} */
