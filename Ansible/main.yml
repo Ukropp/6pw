@@ -12,4 +12,9 @@
     # task for app (vm2, vm3)
 - hosts: app
   tasks:
-    - name: Install Docker
+    # Install Docker
+   - include_tasks: centos.yml
+     when: ansible_facts[‘distribution’] == 'CentOS'
+
+   - include_tasks: ubuntu.yml
+     when: ansible_facts[‘distribution’] == 'Ubuntu'
