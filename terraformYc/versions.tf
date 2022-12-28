@@ -1,3 +1,6 @@
+# Токены лежат во внешнем файле, инициализацию проводить через команду: terraform init -backend-config=${YC_TF_BACKEND}
+# Проверка: pre-commit run -a
+
 # Настройки провайдера яндекс облака
 terraform {
   required_providers {
@@ -17,8 +20,6 @@ terraform {
   required_version = ">= 0.13"
 }
 # Настройки авторизации
-# Токены лежат во внешнем файле, инициализацию проводить через команду: terraform init -backend-config=${YC_TF_BACKEND}
-# Проверка: pre-commit run -a
 provider "yandex" {
   service_account_key_file = file(var.yakey)
   cloud_id                 = var.cloud_id
