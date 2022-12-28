@@ -10,7 +10,7 @@ terraform {
     endpoint                    = "storage.yandexcloud.net"
     bucket                      = "tf-bucket-for-state"
     region                      = "ru-central1-a"
-    key                         = "state1/b5pw.tfstate"
+    key                         = "state1/b6pw.tfstate"
     skip_region_validation      = true
     skip_credentials_validation = true
   }
@@ -20,7 +20,7 @@ terraform {
 # Токены лежат во внешнем файле, инициализацию проводить через команду: terraform init -backend-config=${YC_TF_BACKEND}
 # Проверка: pre-commit run -a
 provider "yandex" {
-  service_account_key_file = file("C:/Users/User/yackey.json")
+  service_account_key_file = file(var.yakey)
   cloud_id                 = var.cloud_id
   folder_id                = var.folder_id
   zone                     = var.zone
