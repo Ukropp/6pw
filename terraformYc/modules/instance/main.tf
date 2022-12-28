@@ -4,7 +4,7 @@ data "yandex_compute_image" "image" {
 }
 # Создание VM
 resource "yandex_compute_instance" "vm" {
-  name        = var.instance_family_image
+  name        = var.vm_name
   platform_id = "standard-v3"
   zone        = var.zone
 
