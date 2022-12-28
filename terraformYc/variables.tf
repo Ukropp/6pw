@@ -13,3 +13,8 @@ variable "folder_id" {
   description = "Devops-33 folder id"
   type        = string
 }
+
+variable "yakey" {
+  description = "yandex service account key file path"
+  type        = string
+}
