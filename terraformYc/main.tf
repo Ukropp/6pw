@@ -3,18 +3,21 @@
 module "vm1" {
   source                = "./modules/instance"
   instance_family_image = "ubuntu-2004-lts"
+  vm_name               = "vm1"
   vpc_subnet_id         = yandex_vpc_subnet.subnet.id
 }
 # vm2
 module "vm2" {
   source                = "./modules/instance"
   instance_family_image = "ubuntu-2004-lts"
+  vm_name               = "vm2"
   vpc_subnet_id         = yandex_vpc_subnet.subnet.id
 }
 # vm3
 module "vm3" {
   source                = "./modules/instance"
   instance_family_image = "centos-7"
+  vm_name               = "vm3"
   vpc_subnet_id         = yandex_vpc_subnet.subnet.id
 }
 
