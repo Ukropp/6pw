@@ -26,4 +26,13 @@ ___
 * terraform file provisoner: <https://developer.hashicorp.com/terraform/language/resources/provisioners/file>
 * terraform template file: <https://registry.tfpla.net/providers/hashicorp/template/latest/docs/data-sources/file>
 * terraform templates: <https://www.cloudbolt.io/terraform-best-practices/terraform-template/>
+* ansible docker install ubuntu: <https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-20-04>
+* ansible docker install centos: <https://www.ansiblepilot.com/articles/install-docker-in-redhat-like-systems-ansible-module-rpm_key-yum_repository-and-yum/>
+* ansible apt module: <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html>
+* ansible apt_key module: <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_key_module.html>
+* ansible apt_repository module: <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html>
+* ansible pip module: <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pip_module.html>
+* ansible yam module: <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_module.html>
+* ansible package moduel: <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/package_module.html>
+* ansible confitionals: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html>
 
