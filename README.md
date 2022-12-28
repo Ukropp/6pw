@@ -18,7 +18,8 @@ ___
 ___
 
 #### links:
-<https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>
-<https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html>
-<https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html>
-<https://docs.ansible.com/ansible/latest/playbook_guide/playbooks.html>
+* ansible installation: <https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>
+* ansible inventory: <https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html>
+* ansible role: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html>
+* ansible playbooks: <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks.html>
+* terraform copy file: <https://developer.hashicorp.com/terraform/language/resources/provisioners/file>
