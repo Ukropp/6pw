@@ -1,6 +1,7 @@
 ---
 # tasks for vm1
 - hosts: database
+  become: true
   tasks:
 
     # Added variables
@@ -54,6 +55,7 @@
 
 # task for app (vm2, vm3)
 - hosts: app
+  become: true
   tasks:
     # Install Docker
   - include_tasks: setupCentos.yml
