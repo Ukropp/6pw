@@ -1,15 +1,82 @@
 ---
 # tasks for vm1
+# https://github.com/geerlingguy/ansible-role-postgresql/tree/master/tasks
+# https://stribny.name/blog/ansible-postgresql/
+# https://www.ansiblepilot.com/articles/install-postgresql-in-debian-like-systems-ansible-modules-apt-stat-shell-service/
 - hosts: database
   tasks:
-    - name: Install postgresql-server
-      ansible.builtin.apt:
-        name: postgresql-server
-        state: present
-        # [ ] задать версию и дата директорию через переменные, 
-        # [ ] проверить этапы установки и запуска, возможно надо создать сервис
 
-    # task for app (vm2, vm3)
+    # Added variables
+  - name: Include variables
+    include_vars: vars.yml
+
+    # Add postgresql key
+  - name: postgresql key
+    apt_key:
+      url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+      state: present
+    become: true
+
+    # Create repo variable
+  - name: create variable
+    command: bash -c "echo \"deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main\" "
+    register: repo_line
+
+    # Add postgresql repo
+  - name: add postgresql repo
+    apt_repository:
+      repo: "{{ repo_line.stdout }}"
+      state: present
+    become: true
+
+    # Install postgresql
+  - name: Install postgresql-server
+    ansible.builtin.apt:
+      name: "postgresql-{{postgresql_version}}"
+      state: present
+      update_cache: yes
+    become: true
+        # [ ] задать версию и дата директорию через переменные, 
+        # [x] проверить этапы установки и запуска, возможно надо создать сервис
+
+    # postgresql service start
+    - name: Start postgresql
+      ansible.builtin.service:
+          name: postgresql
+          enabled: true
+          state: started
+
+# set postgresql data directory
+- name: Set postgresql data
+        ansible.builtin.lineinfile:
+            path: "/etc/postgresql/{{postgresql_version}}/main/postgresql.conf"
+            regexp: '^data_directory'
+            line: "listen = {{postgresql_data_directory}}"
+            state: present
+            notify: "restart postgresql"
+
+# task for app (vm2, vm3)
 - hosts: app
   tasks:
+    # Install Docker
+   - include_tasks: setupCentos.yml
+     when: ansible_facts['distribution'] == 'CentOS'
+
+   - include_tasks: setupUbuntu.yml
+     when: ansible_facts['distribution'] == 'Ubuntu'
+
     - name: Install Docker
+      ansible.builtin.package:
+        name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        state: latest
+        update_cache: true
+
+    # Docker service start
+    - name: Start Docker
+      ansible.builtin.service:
+        name: docker
+        enabled: true
+        state: started

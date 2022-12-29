@@ -1,0 +1,20 @@
+---
+# https://www.ansiblepilot.com/articles/install-docker-in-redhat-like-systems-ansible-module-rpm_key-yum_repository-and-yum/
+- name: Install yam-utils
+  ansible.builtin.yam:
+    name: yum-utils
+    state: latest
+
+- name: Add signing key
+  ansible.builtin.rpm_key:
+    key: "https://download.docker.com/linux/centos/gpg"
+    state: present
+
+- name: Add repository into repo.d list
+  ansible.builtin.yum_repository:
+    name: docker
+    description: docker repository
+    baseurl: "https://download.docker.com/linux/centos/docker-ce.repo"
+    enabled: true
+    gpgcheck: true
+    gpgkey: "https://download.docker.com/linux/centos/gpg"
