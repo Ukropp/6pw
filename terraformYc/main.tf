@@ -44,10 +44,10 @@ data "template_file" "ansible_inventory" {
 
 # Генерация inventory.ini
 resource "null_resource" "update_inventory" {
-  triggers = { // Код будет выполнен, когда inventory будет сгенерирован
+  triggers = {
     template = data.template_file.ansible_inventory.rendered
   }
-  provisioner "local-exec" { // выполняем команду на локальной машине
+  provisioner "local-exec" {
     command = "echo '${data.template_file.ansible_inventory.rendered}' > ~/inventory/b6pw.ini"
   }
 }
