@@ -1,6 +1,6 @@
 [app]
-vm2
-vm3
+158.160.50.117
+158.160.51.24
 
 [web]
 localhost ansible_connection=local
