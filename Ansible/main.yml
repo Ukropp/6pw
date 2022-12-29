@@ -77,3 +77,11 @@
       name: docker
       enabled: true
       state: started
+
+  handlers:
+  - name: restart postgresql
+    systemd:
+      daemon_reload: yes
+      name: postgresql
+      state: restarted
+    listen: "restart postgresql"
