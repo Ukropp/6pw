@@ -1,7 +1,7 @@
 ---
 # https://www.ansiblepilot.com/articles/install-docker-in-redhat-like-systems-ansible-module-rpm_key-yum_repository-and-yum/
-- name: Install yam-utils
-  ansible.builtin.yam:
+- name: Install yum-utils
+  ansible.builtin.yum:
     name: yum-utils
     state: latest
 
