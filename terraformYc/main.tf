@@ -33,9 +33,6 @@ resource "yandex_vpc_subnet" "subnet" {
   network_id     = yandex_vpc_network.network.id
 }
 
-
-# Установка Ansible на VM1
-
 # Генерируем hosts
 data "template_file" "ansible_inventory" {
   template = file("${path.module}/templates/hosts.tpl") # Путь до шаблона на локальном компьютере
@@ -45,13 +42,12 @@ data "template_file" "ansible_inventory" {
   }
 }
 
-/*
-# Записываем сгенерированный шаблон в файл
+# Генерация inventory.ini
 resource "null_resource" "update_inventory" {
   triggers = { // Код будет выполнен, когда inventory будет сгенерирован
     template = data.template_file.ansible_inventory.rendered
   }
   provisioner "local-exec" { // выполняем команду на локальной машине
-    command = "echo '${data.template_file.ansible_inventory.rendered}' > inventory.ini"
+    command = "echo '${data.template_file.ansible_inventory.rendered}' > ~/inventory/b6pw.ini"
   }
-} */
+}

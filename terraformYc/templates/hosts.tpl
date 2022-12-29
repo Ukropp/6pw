@@ -1,6 +1,6 @@
 [app]
-${vm2}
-${vm3}
+roman@${vm2}
+roman@${vm3}
 
 [web]
 localhost ansible_connection=local
