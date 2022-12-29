@@ -31,6 +31,13 @@
         # [ ] задать версию и дата директорию через переменные, 
         # [x] проверить этапы установки и запуска, возможно надо создать сервис
 
+    # postgresql service start
+    - name: Start postgresql
+      ansible.builtin.service:
+          name: postgresql
+          enabled: true
+          state: started
+
 # task for app (vm2, vm3)
 - hosts: app
   tasks:
