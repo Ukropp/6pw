@@ -1,38 +1,20 @@
 ---
 # https://www.ansiblepilot.com/articles/install-docker-in-redhat-like-systems-ansible-module-rpm_key-yum_repository-and-yum/
-- name: install Docker
-  hosts: all
-  become: true
-  tasks:
-      - name: set mydistribution
-        ansible.builtin.set_fact:
-            mydistribution: "{{ 'rhel' if (ansible_distribution == 'Red Hat Enterprise Linux') else (ansible_distribution | lower) }}"
+- name: Install yam-utils
+  ansible.builtin.yam:
+    name: yum-utils
+    state: latest
 
-    - name: Add signing key
-      ansible.builtin.rpm_key:
-          key: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
-          state: present
+- name: Add signing key
+  ansible.builtin.rpm_key:
+    key: "https://download.docker.com/linux/centos/gpg"
+    state: present
 
-    - name: Add repository into repo.d list
-      ansible.builtin.yum_repository:
-          name: docker
-          description: docker repository
-          baseurl: "https://download.docker.com/linux/{{ mydistribution }}/$releasever/$basearch/stable"
-          enabled: true
-          gpgcheck: true
-          gpgkey: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
-
-    - name: Install Docker
-      ansible.builtin.yum:
-          name:
-              - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          state: latest
-          update_cache: true
-
-    - name: Start Docker
-      ansible.builtin.service:
-          name: "docker"
-          enabled: true
-          state: started
+- name: Add repository into repo.d list
+  ansible.builtin.yum_repository:
+    name: docker
+    description: docker repository
+    baseurl: "https://download.docker.com/linux/centos/docker-ce.repo"
+    enabled: true
+    gpgcheck: true
+    gpgkey: "https://download.docker.com/linux/centos/gpg"
