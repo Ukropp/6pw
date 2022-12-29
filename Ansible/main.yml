@@ -6,22 +6,30 @@
 - hosts: database
   tasks:
 
+    # Added variables
+  - name: Include variables
+    include_vars: vars.yml
+
+    # Add postgresql key
   - name: postgresql key
     apt_key:
       url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
       state: present
     become: true
 
+    # Create repo variable
   - name: create variable
     command: bash -c "echo \"deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main\" "
     register: repo_line
 
+    # Add postgresql repo
   - name: add postgresql repo
     apt_repository:
       repo: "{{ repo_line.stdout }}"
       state: present
     become: true
 
+    # Install postgresql
   - name: Install postgresql-server
     ansible.builtin.apt:
       name: "postgresql-{{postgresql_version}}"
@@ -42,7 +50,6 @@
 - hosts: app
   tasks:
     # Install Docker
-    # https://github.com/geerlingguy/ansible-role-docker/blob/master/tasks/main.yml
    - include_tasks: setupCentos.yml
      when: ansible_facts['distribution'] == 'CentOS'
 
