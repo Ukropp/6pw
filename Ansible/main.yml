@@ -34,8 +34,6 @@
       state: present
       update_cache: yes
     become: true
-        # [ ] задать версию и дата директорию через переменные, 
-        # [x] проверить этапы установки и запуска, возможно надо создать сервис
 
     # postgresql service start
   - name: Start postgresql
